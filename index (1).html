@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Kindness Joint</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="The Kindness Joint: a cozy lifestyle blog for moms and women where cannabis meets compassion and connection.">
+<link rel="icon" href="mark.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,100,1;1,9..144,300..700,100,1&family=Mulish:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<style>
+/* Layout: a storybook journal. Cream paper page, one centered reading column for posts, botanical sprigs as chapter dividers, a sage band for the heart of the brand. Single warm light look by choice, so the cream logo always blends in. */
+:root{
+  --cream:#FDF7E5; --paper:#F7ECD3; --card:#FFFBF0;
+  --ink:#4B3A30; --ink-soft:#7A6656;
+  --rose:#E2A2A6; --rose-deep:#B5626B;
+  --sage:#9AAE7C; --olive:#5F7144; --olive-deep:#46552F;
+  --terracotta:#C17D58; --gold:#D3A84A; --lavender:#B9A9CC;
+  --line:#E8D9B8;
+  --display:"Fraunces", "Iowan Old Style", Georgia, serif;
+  --body:"Mulish", "Segoe UI", system-ui, sans-serif;
+  color-scheme: light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.65;
+  background-image:radial-gradient(circle at 12% 8%, rgba(226,162,166,.10), transparent 40%),radial-gradient(circle at 88% 30%, rgba(154,174,124,.10), transparent 42%);}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--cream)}
+a{color:var(--olive);text-decoration-color:var(--sage);text-underline-offset:3px}
+a:hover{color:var(--rose-deep)}
+:focus-visible{outline:2px solid var(--rose-deep);outline-offset:3px;border-radius:4px}
+img{max-width:100%;display:block}
+.wrap{max-width:1100px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-variation-settings:"SOFT" 100,"WONK" 1;font-weight:500;line-height:1.15;text-wrap:balance;margin:0;color:var(--ink)}
+h1{font-size:clamp(2.2rem,6vw,3.6rem)}
+h2{font-size:clamp(1.7rem,4vw,2.4rem)}
+h3{font-size:1.3rem}
+.eyebrow{font-family:var(--body);font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--terracotta)}
+.rose{color:var(--rose-deep)} .green{color:var(--olive)}
+em.swash{font-style:italic;color:var(--rose-deep)}
+
+/* Header */
+header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(253,247,229,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:8px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand img{height:46px;width:auto}
+.brand span{font-family:var(--display);font-size:1.25rem;line-height:1;font-variation-settings:"SOFT" 100,"WONK" 1}
+.brand span b{font-weight:500;color:var(--rose-deep)} .brand span i{font-style:normal;color:var(--olive)}
+nav.main{display:flex;gap:4px;align-items:center}
+nav.main a{font-size:.9rem;font-weight:600;color:var(--ink);text-decoration:none;padding:8px 12px;border-radius:999px}
+nav.main a:hover,nav.main a[aria-current="page"]{background:var(--paper);color:var(--rose-deep)}
+nav.main a.cta{background:var(--olive);color:var(--cream)}
+nav.main a.cta:hover{background:var(--olive-deep);color:var(--cream)}
+.menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:999px;padding:8px 14px;font:600 .9rem var(--body);color:var(--ink);cursor:pointer}
+@media (max-width:820px){
+  .menu-btn{display:block}
+  nav.main{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;background:var(--cream);border-bottom:1px solid var(--line);padding:8px max(16px,env(safe-area-inset-right,0px)) 16px max(16px,env(safe-area-inset-left,0px))}
+  nav.main.open{display:flex}
+  nav.main a{padding:12px 14px;font-size:1rem}
+  .brand span{display:none}
+}
+
+/* Shared bits */
+section{padding-block:56px}
+.btn{display:inline-block;font:700 .95rem var(--body);padding:13px 24px;border-radius:999px;text-decoration:none;border:1.5px solid var(--olive);transition:background .2s,color .2s}
+.btn.solid{background:var(--olive);color:var(--cream)} .btn.solid:hover{background:var(--olive-deep);color:var(--cream)}
+.btn.ghost{color:var(--olive)} .btn.ghost:hover{background:var(--olive);color:var(--cream)}
+.sprig{display:flex;justify-content:center;align-items:center;gap:14px;color:var(--sage);margin:8px auto}
+.sprig svg{width:120px;height:24px}
+.sprig .star{color:var(--gold);font-size:.9rem}
+.center{text-align:center}
+.lede{font-size:1.12rem;color:var(--ink-soft);max-width:60ch}
+.center .lede{margin-inline:auto}
+
+/* Hero */
+.hero{padding-block:24px 40px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:32px;align-items:center}
+.hero-logo{max-width:520px;width:100%;margin:0 auto;mask-image:radial-gradient(circle at 50% 50%,#000 58%,transparent 72%);-webkit-mask-image:radial-gradient(circle at 50% 50%,#000 58%,transparent 72%)}
+.hero-copy{display:flex;flex-direction:column;gap:18px;min-width:0}
+.hero-copy h1 .line2{display:block;font-style:italic;color:var(--rose-deep)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+@media (max-width:820px){.hero .wrap{grid-template-columns:1fr}.hero-copy{text-align:center;align-items:center}.hero-logo{max-width:400px}}
+
+/* Topic corners */
+.corners{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+.corner{background:var(--card);border:1px solid var(--line);border-radius:22px 22px 22px 4px;padding:24px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:10px;transition:transform .2s,box-shadow .2s}
+.corner:hover{transform:translateY(-3px);box-shadow:0 10px 24px -14px rgba(95,113,68,.45);color:var(--ink)}
+.corner .ico{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--paper)}
+.corner .ico svg{width:28px;height:28px}
+.corner p{margin:0;color:var(--ink-soft);font-size:.95rem}
+.corner .more{font-size:.85rem;font-weight:700;color:var(--olive);margin-top:auto}
+@media (max-width:900px){.corners{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.corners{grid-template-columns:1fr}}
+
+/* Post cards */
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:30px}
+.post-card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;text-decoration:none;color:var(--ink);min-width:0}
+.post-card:hover{color:var(--ink);box-shadow:0 10px 24px -14px rgba(181,98,107,.45)}
+.post-card .art{aspect-ratio:16/10;max-width:100%;display:grid;place-items:center;position:relative}
+.post-card .art svg{width:46%;height:auto;opacity:.9}
+.post-card .body{padding:18px 20px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
+.post-card h3{font-size:1.2rem}
+.post-card p{margin:0;font-size:.93rem;color:var(--ink-soft)}
+.post-card .meta{display:flex;justify-content:space-between;gap:8px;font-size:.78rem;color:var(--ink-soft);margin-top:auto;padding-top:6px}
+.tag{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--terracotta)}
+.soon{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--paper);color:var(--ink-soft);padding:3px 9px;border-radius:999px}
+@media (max-width:900px){.posts{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.posts{grid-template-columns:1fr}}
+
+/* Heart band */
+.band{background:var(--olive);color:var(--cream);text-align:center;position:relative;overflow:hidden}
+.band .wrap{padding-block:64px;display:flex;flex-direction:column;align-items:center;gap:16px}
+.band blockquote{margin:0;font-family:var(--display);font-style:italic;font-weight:400;font-size:clamp(1.6rem,4.6vw,2.6rem);line-height:1.25;max-width:22ch;color:var(--cream);font-variation-settings:"SOFT" 100,"WONK" 1}
+.band blockquote span{color:#F4C9CB}
+.band p{margin:0;color:#E6EAD7;max-width:52ch}
+.band .stars{color:var(--gold);letter-spacing:.6em}
+
+/* Newsletter */
+.letter{background:var(--paper);border:1px solid var(--line);border-radius:28px;padding:40px 28px;display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+.letter h2 em{color:var(--rose-deep)}
+.letter form{display:flex;flex-direction:column;gap:10px}
+.field{display:flex;flex-direction:column;gap:6px}
+label{font-size:.82rem;font-weight:700;color:var(--ink-soft)}
+input,textarea,select{font:inherit;font-size:1rem;color:var(--ink);background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:12px 14px;width:100%}
+input:focus,textarea:focus,select:focus{border-color:var(--sage);outline:none;box-shadow:0 0 0 3px rgba(154,174,124,.25)}
+button.btn{cursor:pointer}
+.thanks{background:var(--card);border:1px dashed var(--sage);border-radius:14px;padding:14px 16px;color:var(--olive-deep);font-size:.95rem}
+@media (max-width:760px){.letter{grid-template-columns:1fr;padding:30px 20px}}
+
+/* Page header (inner pages) */
+.page-head{padding-block:44px 8px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px}
+.page-head .lede{margin:0}
+
+/* Article */
+article.post{max-width:680px;margin:0 auto;padding-block:40px 20px}
+article.post header{text-align:center;display:flex;flex-direction:column;gap:12px;align-items:center;margin-bottom:28px}
+article.post .byline{font-size:.88rem;color:var(--ink-soft)}
+article.post .prose p{margin:0 0 1.15em}
+article.post .prose h2{font-size:1.6rem;margin:1.6em 0 .5em}
+article.post .prose p:first-of-type::first-letter{font-family:var(--display);float:left;font-size:3.6em;line-height:.85;padding:6px 10px 0 0;color:var(--rose-deep)}
+article.post .pull{font-family:var(--display);font-style:italic;font-size:1.4rem;line-height:1.35;color:var(--olive);border-left:3px solid var(--rose);padding:4px 0 4px 20px;margin:1.6em 0}
+article.post .kind-list{background:var(--paper);border-radius:18px;padding:20px 24px;margin:1.4em 0}
+article.post .kind-list li{margin:.35em 0}
+article.post .signoff{font-family:var(--display);font-style:italic;font-size:1.3rem;color:var(--rose-deep);margin-top:1.6em}
+.back{display:inline-block;margin-top:12px;font-weight:700;font-size:.9rem}
+
+/* About */
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:start;padding-block:24px 40px}
+.about-grid .prose p{margin:0 0 1.1em}
+.about-grid .prose{min-width:0}
+.draft-note{background:#F6E3E4;border:1px dashed var(--rose-deep);color:var(--rose-deep);border-radius:12px;padding:10px 14px;font-size:.88rem;margin-bottom:18px}
+.values{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:10px}
+.values div{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
+.values strong{font-family:var(--display);font-weight:500;font-size:1.1rem;display:block;color:var(--olive)}
+.values span{font-size:.92rem;color:var(--ink-soft)}
+@media (max-width:820px){.about-grid{grid-template-columns:1fr}}
+@media (max-width:460px){.values{grid-template-columns:1fr}}
+
+/* Contact */
+.contact{max-width:620px;margin:0 auto;padding-block:20px 40px}
+.contact form{display:flex;flex-direction:column;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px}
+
+/* Footer */
+footer.site{border-top:1px solid var(--line);margin-top:40px;background:var(--paper)}
+footer.site .wrap{padding-block:40px 32px;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:28px}
+footer.site img{width:150px;mix-blend-mode:multiply}
+footer.site h4{font:700 .75rem var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--terracotta);margin:0 0 10px}
+footer.site ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px}
+footer.site ul a{text-decoration:none;color:var(--ink)}
+footer.site .fine{grid-column:1/-1;border-top:1px solid var(--line);padding-top:18px;font-size:.82rem;color:var(--ink-soft);display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+@media (max-width:760px){footer.site .wrap{grid-template-columns:1fr 1fr}footer.site .wrap>div:first-child{grid-column:1/-1}}
+
+.view{animation:rise .5s ease both}
+@keyframes rise{from{opacity:.4;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.view{animation:none}html{scroll-behavior:auto}.corner,.btn{transition:none}}
+</style>
+
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="sprig" viewBox="0 0 120 24"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M4 12 H116"/></g><g fill="currentColor"><ellipse cx="22" cy="7" rx="7" ry="3" transform="rotate(-25 22 7)"/><ellipse cx="22" cy="17" rx="7" ry="3" transform="rotate(25 22 17)"/><ellipse cx="40" cy="7" rx="7" ry="3" transform="rotate(-25 40 7)"/><ellipse cx="40" cy="17" rx="7" ry="3" transform="rotate(25 40 17)"/><ellipse cx="80" cy="7" rx="7" ry="3" transform="rotate(25 80 7)"/><ellipse cx="80" cy="17" rx="7" ry="3" transform="rotate(-25 80 17)"/><ellipse cx="98" cy="7" rx="7" ry="3" transform="rotate(25 98 7)"/><ellipse cx="98" cy="17" rx="7" ry="3" transform="rotate(-25 98 17)"/><circle cx="60" cy="12" r="3.2"/></g></symbol>
+    <symbol id="i-heart" viewBox="0 0 32 32"><path d="M16 27C6 20 3 15 3 10.5 3 7 5.8 4.5 9 4.5c3 0 5 1.8 7 4.5 2-2.7 4-4.5 7-4.5 3.2 0 6 2.5 6 6C29 15 26 20 16 27z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M16 23V12M16 15c-2-1-4-1-5.5 0M16 15c2-1 4-1 5.5 0M16 19c-2.5-1-5-.5-6.5.5M16 19c2.5-1 5-.5 6.5.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M16 28V18"/><path d="M16 18C14 12 14 7 16 3c2 4 2 9 0 15z"/><path d="M16 18C11 15 8 11 7 7c4 1 8 5 9 11z"/><path d="M16 18c5-3 8-7 9-11-4 1-8 5-9 11z"/><path d="M16 19c-4 0-8-1-11-3 3-1 8-1 11 3z"/><path d="M16 19c4 0 8-1 11-3-3-1-8-1-11 3z"/></g></symbol>
+    <symbol id="i-moon" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M20 5a11 11 0 1 0 7 17A9 9 0 0 1 20 5z"/><path d="M24 7v4M22 9h4"/></g></symbol>
+    <symbol id="i-cup" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13h17v5a7 7 0 0 1-7 7h-3a7 7 0 0 1-7-7z"/><path d="M22 15h2a3 3 0 0 1 0 6h-2.5"/><path d="M10 9c0-2 2-2 2-4M15 9c0-2 2-2 2-4"/></g></symbol>
+    <symbol id="i-hands" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="10" cy="10" r="4"/><circle cx="22" cy="10" r="4"/><path d="M3 27c0-5 3-9 7-9s7 4 7 9M15 27c0-5 3-9 7-9s7 4 7 9"/></g></symbol>
+    <symbol id="i-book" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M16 8c-3-2-7-3-12-3v19c5 0 9 1 12 3 3-2 7-3 12-3V5c-5 0-9 1-12 3z"/><path d="M16 8v19"/></g></symbol>
+  </defs>
+</svg>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#home" aria-label="The Kindness Joint home">
+      <img src="mark.jpg" alt="" width="99" height="46">
+      <span><b>The Kindness</b> <i>Joint</i></span>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mainNav">Menu</button>
+    <nav class="main" id="mainNav" aria-label="Main">
+      <a href="#home">Home</a>
+      <a href="#journal">Journal</a>
+      <a href="#about">About</a>
+      <a href="#contact">Say hello</a>
+      <a class="cta" href="#letters">Join the letters</a>
+    </nav>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<footer class="site">
+  <div class="wrap">
+    <div>
+      <img src="logo.jpg" alt="The Kindness Joint logo">
+      <p style="margin:10px 0 0;max-width:34ch;color:var(--ink-soft);font-size:.92rem">A cozy little corner of the internet for moms, women, and kind humans. Come as you are.</p>
+    </div>
+    <div>
+      <h4>Corners</h4>
+      <ul id="footTopics"></ul>
+    </div>
+    <div>
+      <h4>Visit</h4>
+      <ul>
+        <li><a href="#journal">The Journal</a></li>
+        <li><a href="#about">Our story</a></li>
+        <li><a href="#letters">Kindness letters</a></li>
+        <li><a href="#contact">Say hello</a></li>
+      </ul>
+    </div>
+    <div class="fine">
+      <span>© 2026 The Kindness Joint · Where cannabis meets compassion</span>
+      <span>Cannabis content is for adults 21+. Please enjoy responsibly and follow the laws where you live. Nothing here is medical advice.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const TOPICS = [
+  {id:"motherhood", name:"Motherhood & Parenting", short:"Motherhood", icon:"i-heart", color:"var(--rose)", bg:"#F6E1DF",
+   blurb:"The honest, messy, beautiful truth of raising little humans, and remembering that moms are people too."},
+  {id:"cannabis", name:"Cannabis & Lifestyle", short:"Cannabis", icon:"i-leaf", color:"var(--olive)", bg:"#E7EDDA",
+   blurb:"Open, easygoing conversations about cannabis culture, responsible use, and how it fits into a full, grown-up life."},
+  {id:"wellness", name:"Mental & Emotional Wellness", short:"Wellness", icon:"i-moon", color:"#8E7BA8", bg:"#ECE6F2",
+   blurb:"Stress, anxiety, healing, and growth. Learning to give yourself the kindness you hand out to everyone else."},
+  {id:"self-care", name:"Peace & Self-Care", short:"Self-care", icon:"i-cup", color:"var(--terracotta)", bg:"#F5E3D6",
+   blurb:"Small rituals, gentle routines, and boundaries. Making time for yourself without a single ounce of guilt."},
+  {id:"community", name:"Community & Connection", short:"Community", icon:"i-hands", color:"#B08A2E", bg:"#F5EBCF",
+   blurb:"A judgment-free circle where women and mothers feel understood, supported, and a whole lot less alone."},
+  {id:"real-life", name:"Real Life & Stories", short:"Real life", icon:"i-book", color:"var(--rose-deep)", bg:"#F3E4DA",
+   blurb:"Laughter, struggles, lessons learned, and everything in between. The real stuff, told over a warm drink."}
+];
+
+const POSTS = [
+  {id:"mom-is-a-person-too", topic:"motherhood", title:"Mom Is a Person, Too", sub:"Making room for yourself without the guilt",
+   date:"November 19, 2026", read:"5 min read", ready:true,
+   excerpt:"Somewhere between the snack requests and the laundry mountain, a lot of us quietly misplace ourselves. Let's go looking."},
+  {id:"good-mom-joint", topic:"cannabis", title:"Can a Good Mom Enjoy a Joint?", date:"Coming soon", read:"",
+   excerpt:"Spoiler: being a loving, present parent and a grown woman who unwinds with cannabis are not opposites. Let's talk about it honestly."},
+  {id:"anxiety-spiral", topic:"wellness", title:"The Little Things That Pull Me Out of an Anxiety Spiral", date:"Coming soon", read:"",
+   excerpt:"Not a cure, not a checklist. Just the small, real things that help me find the floor again when my brain gets loud."},
+  {id:"five-minute-peace", topic:"self-care", title:"Five-Minute Peace", sub:"Tiny rituals for loud days", date:"Coming soon", read:"",
+   excerpt:"You don't need a spa weekend. You need five minutes, a warm cup, and permission to sit down. Here's mine."},
+  {id:"not-the-only-one", topic:"community", title:"You Are Not the Only One", date:"Coming soon", read:"",
+   excerpt:"Why I started this little corner, and why I hope you'll pull up a chair and stay a while."},
+  {id:"parking-lot-cry", topic:"real-life", title:"The Day I Cried in a Parking Lot (and Why It Was Fine)", date:"Coming soon", read:"",
+   excerpt:"A sandwich, a toddler meltdown, and a very kind stranger. Sometimes the bad days teach the best lessons."}
+];
+
+const topicById = id => TOPICS.find(t => t.id === id);
+const ico = (id, color) => `<svg style="color:${color}" aria-hidden="true"><use href="#${id}"/></svg>`;
+const sprig = () => `<div class="sprig" aria-hidden="true"><span class="star">✦</span><svg><use href="#sprig"/></svg><span class="star">✦</span></div>`;
+
+function postCard(p){
+  const t = topicById(p.topic);
+  const href = p.ready ? `#${p.id}` : `#${t.id}`;
+  return `<a class="post-card" href="${href}">
+    <div class="art" style="background:${t.bg}">${ico(t.icon, t.color)}</div>
+    <div class="body">
+      <span class="tag">${t.short}</span>
+      <h3>${p.title}</h3>
+      <p>${p.excerpt}</p>
+      <div class="meta">${p.ready ? `<span>${p.date}</span><span>${p.read}</span>` : `<span class="soon">Coming soon</span>`}</div>
+    </div></a>`;
+}
+
+function letterBlock(){
+  return `<section id="lettersSection"><div class="wrap"><div class="letter">
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <span class="eyebrow">Kindness letters</span>
+      <h2>A little note in your inbox, <em>every other Sunday.</em></h2>
+      <p class="lede" style="margin:0">New stories, small self-care ideas, and a reminder that you're doing better than you think. No spam, no pressure, unsubscribe anytime.</p>
+    </div>
+    <form class="js-form" data-subject="New Kindness Letters sign-up" data-done="You're on the list! Your first letter will find you soon. 💌">
+      <div class="field"><label for="nl-name">First name</label><input id="nl-name" name="name" autocomplete="given-name" placeholder="What should we call you?"></div>
+      <div class="field"><label for="nl-email">Email</label><input type="hidden" name="form" value="Newsletter sign-up"><input id="nl-email" name="email" type="email" required autocomplete="email" placeholder="you@example.com"></div>
+      <button class="btn solid" type="submit">Send me the letters</button>
+    </form>
+  </div></div></section>`;
+}
+
+const VIEWS = {
+  home(){
+    return `
+    <section class="hero"><div class="wrap">
+      <img class="hero-logo" src="logo.jpg" alt="The Kindness Joint: a pink heart holding a cannabis leaf and a joint, framed by green vines. Where cannabis meets compassion." width="720" height="720">
+      <div class="hero-copy">
+        <span class="eyebrow">A cozy corner for moms, women &amp; kind humans</span>
+        <h1>Pull up a chair, <span class="line2">you're among friends.</span></h1>
+        <p class="lede">Real talk about motherhood, wellness, self-care and cannabis, with zero judgment and plenty of heart. You don't have to be perfect to be doing a good job.</p>
+        <div class="hero-actions">
+          <a class="btn solid" href="#journal">Read the journal</a>
+          <a class="btn ghost" href="#about">Our story</a>
+        </div>
+      </div>
+    </div></section>
+
+    <section style="padding-top:20px"><div class="wrap">
+      <div class="center" style="display:flex;flex-direction:column;gap:12px;align-items:center">
+        ${sprig()}
+        <h2>Six little corners</h2>
+        <p class="lede">Wander wherever your heart needs today.</p>
+      </div>
+      <div class="corners">
+        ${TOPICS.map(t => `<a class="corner" href="#${t.id}">
+          <span class="ico" style="background:${t.bg}">${ico(t.icon, t.color)}</span>
+          <h3>${t.name}</h3><p>${t.blurb}</p><span class="more">Visit this corner →</span></a>`).join("")}
+      </div>
+    </div></section>
+
+    <section class="band"><div class="wrap">
+      <span class="stars" aria-hidden="true">✦ ✦ ✦</span>
+      <blockquote>It's about more than lighting up. It's about <span>lifting each other up.</span></blockquote>
+      <p>Finding peace in the chaos, embracing imperfect motherhood, and remembering that kindness starts with how we treat ourselves.</p>
+    </div></section>
+
+    <section><div class="wrap">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:12px">
+        <div style="display:flex;flex-direction:column;gap:8px"><span class="eyebrow">Fresh from the journal</span><h2>Latest stories</h2></div>
+        <a class="btn ghost" href="#journal">See all stories</a>
+      </div>
+      <div class="posts">${POSTS.slice(0,3).map(postCard).join("")}</div>
+    </div></section>
+
+    ${letterBlock()}`;
+  },
+
+  journal(){
+    return `<div class="wrap">
+      <div class="page-head">${sprig()}<span class="eyebrow">The Journal</span><h1>Stories, <em class="swash">soft truths</em> &amp; small comforts</h1>
+      <p class="lede">Grab a warm drink (or whatever helps you unwind) and stay a while.</p></div>
+      <section style="padding-top:10px"><div class="posts">${POSTS.map(postCard).join("")}</div></section>
+    </div>${letterBlock()}`;
+  },
+
+  about(){
+    return `<div class="wrap">
+      <div class="page-head">${sprig()}<span class="eyebrow">Our story</span><h1>Hi, I'm <em class="swash">Autumn.</em></h1>
+      <p class="lede">Welcome to The Kindness Joint. Make yourself at home.</p></div>
+      <div class="about-grid">
+        <img src="logo.jpg" alt="The Kindness Joint logo" style="border-radius:50%;max-width:420px;width:100%;margin:0 auto" width="720" height="720">
+        <div class="prose">
+          <div class="draft-note">Draft: Autumn, send me your story in your own words and I'll put it here.</div>
+          <p>I'm a mom, a woman still figuring it out, and someone who believes that being a good parent, a good person, and a cannabis enthusiast don't have to be mutually exclusive.</p>
+          <p>I started The Kindness Joint because I couldn't find a place that felt like <em>me</em>. The mom blogs were too polished. The cannabis sites felt like a dorm room. The wellness world felt like a lecture. I wanted somewhere that felt like sitting on a friend's porch: honest, warm, a little funny, and completely free of judgment.</p>
+          <p>So I built it. This is a space for the moms who need a moment to themselves, the women finding their way back to who they are, and anyone who could use a little breathing room and a whole lot of kindness.</p>
+          <h2 style="font-size:1.5rem;margin:1.4em 0 .6em">What you'll find here</h2>
+          <div class="values">
+            <div><strong>Honesty</strong><span>The real, messy, wonderful stuff. No highlight reels.</span></div>
+            <div><strong>No judgment</strong><span>Every mom, every path, every choice made with love.</span></div>
+            <div><strong>Gentle humor</strong><span>Because sometimes you have to laugh so you don't cry.</span></div>
+            <div><strong>Kindness first</strong><span>Toward each other, and especially toward yourself.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>${letterBlock()}`;
+  },
+
+  contact(){
+    return `<div class="wrap">
+      <div class="page-head">${sprig()}<span class="eyebrow">Say hello</span><h1>Let's <em class="swash">chat</em></h1>
+      <p class="lede">A story to share, a question, a collaboration idea, or just a kind word? I read every message.</p></div>
+      <div class="contact">
+        <form class="js-form" data-subject="New message from The Kindness Joint contact page" data-done="Thank you, friend. Your note is on its way and I'll write back soon. 🌿">
+          <div class="field"><label for="c-name">Your name</label><input id="c-name" name="name" required autocomplete="name"></div>
+          <div class="field"><label for="c-email">Email</label><input id="c-email" name="email" type="email" required autocomplete="email"></div>
+          <div class="field"><label for="c-about">What's it about?</label>
+            <select id="c-about" name="about"><option>Just saying hi</option><option>A story or topic idea</option><option>Collaboration or brand partnership</option><option>Something else</option></select></div>
+          <div class="field"><label for="c-msg">Your message</label><textarea id="c-msg" name="message" rows="6" required></textarea></div>
+          <button class="btn solid" type="submit">Send with kindness</button>
+        </form>
+      </div>
+    </div>`;
+  },
+
+  "mom-is-a-person-too"(){
+    const t = topicById("motherhood");
+    return `<div class="wrap"><article class="post">
+      <header>
+        <a class="tag" href="#${t.id}" style="text-decoration:none">${t.name}</a>
+        <h1>Mom Is a Person, Too</h1>
+        <p class="lede" style="margin:0;font-family:var(--display);font-style:italic">Making room for yourself without the guilt</p>
+        <span class="byline">By Autumn · November 19, 2026 · 5 min read</span>
+        ${sprig()}
+      </header>
+      <div class="prose">
+        <p>Somewhere between the snack requests, the permission slips, and the laundry mountain that never, ever shrinks, a lot of us quietly misplace ourselves. Not all at once. It happens slowly, like a sweater you keep meaning to grab from the back of the closet until one day you realize you haven't worn it in years.</p>
+        <p>If you've ever stood in your kitchen at 9 p.m. and genuinely couldn't remember the last thing you did just because <em>you</em> wanted to, this one's for you. Pull up a chair.</p>
+        <h2>The quiet disappearing act</h2>
+        <p>Nobody hands you a pamphlet at the hospital that says, "Congratulations! You will now put yourself last on every list for the foreseeable future." But that's kind of how it goes. Your needs slide down the list until they fall off the bottom, and you tell yourself it's fine. It's what good moms do.</p>
+        <p class="pull">Here's the thing I had to learn the hard way: running on empty doesn't make you a better mother. It just makes you a tired one.</p>
+        <p>Our kids don't need a martyr. They need a person. A whole one, with interests and laughter and a little patience left over at bedtime. And the only way to have that is to refill the cup now and then.</p>
+        <h2>Guilt is not a job requirement</h2>
+        <p>Let's name the elephant. The second many of us take time for ourselves, the guilt shows up like an uninvited houseguest. <em>Shouldn't you be folding something? Shouldn't you be with the kids?</em></p>
+        <p>I've started answering that voice the way I'd answer a friend. If my best friend told me she took twenty minutes to sit on the porch with a cup of tea, or to unwind with a little something after the kids were asleep, I wouldn't call her selfish. I'd say, "Good. You deserve it." So why not say that to myself?</p>
+        <h2>Small ways to find yourself again</h2>
+        <p>You don't need a week-long retreat (though if someone's offering, I'm free). Start small. Here are a few things that help me remember I'm a person too:</p>
+        <ul class="kind-list">
+          <li><strong>Claim one tiny ritual.</strong> Morning coffee before anyone's up. A bath with the door locked. An evening wind-down that's just yours.</li>
+          <li><strong>Revisit an old love.</strong> What did you enjoy before the diaper bag? Painting, dancing in the kitchen, reading trashy novels? Do ten minutes of it.</li>
+          <li><strong>Say no without a speech.</strong> "No, that doesn't work for me" is a complete sentence.</li>
+          <li><strong>Talk to yourself kindly.</strong> Notice the voice in your head. Would you let anyone talk to your kids that way? Then don't let it talk to you that way either.</li>
+          <li><strong>Find your people.</strong> Other women who get it, who won't judge the messy house or the messy feelings. (Hi. We're right here.)</li>
+        </ul>
+        <h2>You're allowed to be both</h2>
+        <p>You can love your children with your whole heart <em>and</em> want an hour to yourself. You can be a devoted mom <em>and</em> a woman with her own dreams, habits, and ways to relax. Those things were never opposites. Anyone who told you otherwise was selling something.</p>
+        <p>So tonight, or tomorrow, or whenever you can steal a moment: do one small thing that's just for you. Not because you earned it. Because you're a person, and people need kindness too.</p>
+        <p class="signoff">With love, and a little breathing room,<br>Autumn ✦</p>
+      </div>
+      <a class="back" href="#journal">← Back to the journal</a>
+    </article></div>${letterBlock()}`;
+  }
+};
+
+TOPICS.forEach(t => {
+  VIEWS[t.id] = () => {
+    const list = POSTS.filter(p => p.topic === t.id);
+    return `<div class="wrap">
+      <div class="page-head"><span class="ico" style="width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:${t.bg}"><svg style="width:36px;height:36px;color:${t.color}" aria-hidden="true"><use href="#${t.icon}"/></svg></span>
+      <span class="eyebrow">A Kindness Joint corner</span><h1>${t.name}</h1><p class="lede">${t.blurb}</p>${sprig()}</div>
+      <section style="padding-top:10px"><div class="posts">${list.map(postCard).join("")}</div>
+      <p class="center" style="color:var(--ink-soft);margin-top:28px">More stories for this corner are on the way. <a href="#letters">Join the letters</a> so you don't miss them.</p></section>
+    </div>`;
+  };
+});
+
+const app = document.getElementById("app");
+const nav = document.getElementById("mainNav");
+const menuBtn = document.getElementById("menuBtn");
+document.getElementById("footTopics").innerHTML = TOPICS.map(t => `<li><a href="#${t.id}">${t.short}</a></li>`).join("");
+
+function route(){
+  let key = (location.hash || "#home").slice(1);
+  let scrollToLetters = false;
+  if (key === "letters"){ scrollToLetters = true; key = (window.__last && window.__last !== "contact") ? window.__last : "home"; }
+  if (!VIEWS[key]) key = "home";
+  if (key !== window.__last){
+    app.innerHTML = `<div class="view">${VIEWS[key]()}</div>`;
+    window.__last = key;
+    window.scrollTo(0,0);
+    const titles = {home:"The Kindness Joint"};
+    const p = POSTS.find(p => p.id === key), t = topicById(key);
+    document.title = titles[key] || ((p ? p.title : t ? t.name : key.charAt(0).toUpperCase()+key.slice(1)) + " · The Kindness Joint");
+  }
+  nav.querySelectorAll("a").forEach(a => { if (a.getAttribute("href") === "#"+key) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current"); });
+  nav.classList.remove("open"); menuBtn.setAttribute("aria-expanded","false");
+  if (scrollToLetters){ const el = document.getElementById("lettersSection"); if (el) setTimeout(()=>el.scrollIntoView({block:"start"}),30); }
+}
+window.addEventListener("hashchange", route);
+menuBtn.addEventListener("click", () => { const o = nav.classList.toggle("open"); menuBtn.setAttribute("aria-expanded", o); });
+const FORM_ENDPOINT = "https://formsubmit.co/ajax/thekindnessjoint@gmail.com";
+document.addEventListener("submit", async e => {
+  const f = e.target.closest(".js-form"); if (!f) return;
+  e.preventDefault();
+  const btn = f.querySelector("button[type=submit]");
+  const data = new FormData(f);
+  data.append("_subject", f.dataset.subject || "New message from The Kindness Joint");
+  data.append("_template", "table");
+  data.append("_captcha", "false");
+  btn.disabled = true; const label = btn.textContent; btn.textContent = "Sending…";
+  try {
+    const res = await fetch(FORM_ENDPOINT, {method:"POST", body:data, headers:{Accept:"application/json"}});
+    if (!res.ok) throw new Error(res.status);
+    f.innerHTML = `<div class="thanks">${f.dataset.done}</div>`;
+  } catch(err) {
+    btn.disabled = false; btn.textContent = label;
+    let msg = f.querySelector(".form-error");
+    if (!msg){ msg = document.createElement("p"); msg.className = "form-error"; msg.style.cssText = "margin:0;color:var(--rose-deep);font-size:.9rem"; f.appendChild(msg); }
+    msg.textContent = "That didn't go through. Please check your connection and try again in a moment.";
+  }
+});
+route();
+</script>
+
+</body>
+</html>
