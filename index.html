@@ -253,6 +253,7 @@ footer.site .fine{grid-column:1/-1;border-top:1px solid var(--line);padding-top:
 
 <script>
 const SCENES = {
+  porch: `<svg viewBox="0 0 400 250" role="img" aria-label="Illustration: two mugs on a porch rail under string lights, their steam curling into a heart" preserveAspectRatio="xMidYMid slice"><rect width="400" height="250" fill="#F5EBCF"/><circle cx="330" cy="70" r="24" fill="#FFF6E2"/><use href="#sparkle" x="60" y="70" width="10" height="10"/><use href="#sparkle" x="250" y="96" width="7" height="7"/><use href="#sparkle" x="372" y="130" width="9" height="9"/><path d="M0 22 Q100 64 200 30 T400 26" stroke="#8C7A5E" stroke-width="1.5" fill="none"/><g fill="#D3A84A"><circle cx="30" cy="34" r="5"/><circle cx="75" cy="47" r="5"/><circle cx="120" cy="49" r="5"/><circle cx="165" cy="40" r="5"/><circle cx="235" cy="34" r="5"/><circle cx="285" cy="44" r="5"/><circle cx="335" cy="36" r="5"/><circle cx="380" cy="27" r="5"/></g><g fill="#F5D88A" opacity=".35"><circle cx="30" cy="34" r="11"/><circle cx="75" cy="47" r="11"/><circle cx="120" cy="49" r="11"/><circle cx="165" cy="40" r="11"/><circle cx="235" cy="34" r="11"/><circle cx="285" cy="44" r="11"/><circle cx="335" cy="36" r="11"/><circle cx="380" cy="27" r="11"/></g><rect x="0" y="186" width="400" height="14" fill="#C9A97F"/><g fill="#D9B88E"><rect x="20" y="200" width="12" height="50"/><rect x="80" y="200" width="12" height="50"/><rect x="140" y="200" width="12" height="50"/><rect x="200" y="200" width="12" height="50"/><rect x="260" y="200" width="12" height="50"/><rect x="320" y="200" width="12" height="50"/><rect x="380" y="200" width="12" height="50"/></g><path d="M140 148 h52 v8 a26 24 0 0 1 -52 0z" fill="#B5626B"/><path d="M192 154 a9 9 0 1 1 0 16" fill="none" stroke="#B5626B" stroke-width="5"/><path d="M234 148 h52 v8 a26 24 0 0 1 -52 0z" fill="#5F7144"/><path d="M234 154 a9 9 0 1 0 0 16" fill="none" stroke="#5F7144" stroke-width="5"/><ellipse cx="166" cy="148" rx="26" ry="4.5" fill="#8E4A52"/><ellipse cx="260" cy="148" rx="26" ry="4.5" fill="#46552F"/><path d="M166 140 c-8-10 8-14 0-24 M260 140 c-8-10 8-14 0-24" stroke="#B9A9CC" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M213 122 C188 106 190 84 202 84 C208 84 213 90 213 95 C213 90 218 84 224 84 C236 84 238 106 213 122Z" fill="#F4C9CB" stroke="#E2A2A6" stroke-width="2"/><use href="#pot-leaf" x="60" y="120" width="62" height="48"/><path d="M76 186 v-22 h30 v22z" fill="#C17D58"/><rect x="72" y="160" width="38" height="7" rx="2" fill="#9E5E3F"/><use href="#bloom" x="320" y="150" width="18" height="18"/><use href="#sprig2" x="306" y="128" width="40" height="60"/></svg>`,
   evening: `<svg viewBox="0 0 400 250" role="img" aria-label="Illustration: a cup of tea by a moonlit window, with a cannabis leaf and flowers in a jar" preserveAspectRatio="xMidYMid slice">
 <defs><linearGradient id="sky1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EBDDF0"/><stop offset=".7" stop-color="#F8E6E2"/><stop offset="1" stop-color="#FBEFDD"/></linearGradient></defs>
 <rect width="400" height="250" fill="url(#sky1)"/>
@@ -324,6 +325,8 @@ const TOPICS = [
 ];
 
 const POSTS = [
+  {id:"not-the-only-one", topic:"community", title:"You Are Not the Only One", sub:"Why I started this little corner", date:"November 22, 2026", read:"6 min read", ready:true, art:"porch",
+   excerpt:"Why I started this little corner, and why I hope you'll pull up a chair and stay a while."},
   {id:"good-mom-joint", topic:"cannabis", title:"Can a Good Mom Enjoy a Joint?", sub:"Let's talk about it, honestly", date:"November 20, 2026", read:"7 min read", ready:true, art:"evening",
    excerpt:"Spoiler: being a loving, present parent and a grown woman who unwinds with cannabis are not opposites. Let's talk about it honestly."},
   {id:"mom-is-a-person-too", topic:"motherhood", title:"Mom Is a Person, Too", sub:"Making room for yourself without the guilt",
@@ -333,8 +336,6 @@ const POSTS = [
    excerpt:"Not a cure, not a checklist. Just the small, real things that help me find the floor again when my brain gets loud."},
   {id:"five-minute-peace", topic:"self-care", title:"Five-Minute Peace", sub:"Tiny rituals for loud days", date:"Coming soon", read:"",
    excerpt:"You don't need a spa weekend. You need five minutes, a warm cup, and permission to sit down. Here's mine."},
-  {id:"not-the-only-one", topic:"community", title:"You Are Not the Only One", date:"Coming soon", read:"",
-   excerpt:"Why I started this little corner, and why I hope you'll pull up a chair and stay a while."},
   {id:"parking-lot-cry", topic:"real-life", title:"The Day I Cried in a Parking Lot (and Why It Was Fine)", date:"Coming soon", read:"",
    excerpt:"A sandwich, a toddler meltdown, and a very kind stranger. Sometimes the bad days teach the best lessons."}
 ];
@@ -472,6 +473,49 @@ const VIEWS = {
         </form>
       </div>
     </div>`;
+  },
+
+  "not-the-only-one"(){
+    const t = topicById("community");
+    return `<div class="wrap"><article class="post">
+      <header>
+        <a class="tag" href="#${t.id}" style="text-decoration:none">${t.name}</a>
+        <h1>You Are Not the Only One</h1>
+        <p class="lede" style="margin:0;font-family:var(--display);font-style:italic">Why I started this little corner</p>
+        <span class="byline">By Autumn · November 22, 2026 · 6 min read</span>
+        ${sprig()}
+      </header>
+      <figure class="scene-fig">${SCENES.porch}</figure>
+      <div class="prose">
+        <p>For a long time, I went looking for a place online where I fit. A place for moms who love their kids like crazy, who talk about mental health and messy days and bedtime battles, and who also happen to enjoy a little weed. I figured it had to exist somewhere. I couldn't find it.</p>
+        <p>So, friend, I built it. And if you've ever felt like you had to keep one half of yourself hidden to be taken seriously as the other half, I want you to know something right away. You are not the only one.</p>
+        <h2>Too sterile, too wild, or way too fancy</h2>
+        <p>Every space I found seemed to land in one of three places.</p>
+        <p>There's the clinical corner, where cannabis is all dosages and disclaimers and feels about as cozy as a waiting room. There's the frat-house corner, all bongs and bro jokes, where a mom asking about bedtime routines would get laughed out of the chat. And then there's the connoisseur corner. You know the one. It's like wandering into a vineyard knowing nothing about wine, and the nice person behind the counter launches into terroir and tannins and notes of oak until your eyes glaze over and you just quietly nod and buy the cheapest bottle.</p>
+        <p>None of those felt like home. I didn't want a lecture. I wanted a <em>conversation</em>.</p>
+        <h2>The middle ground I was missing</h2>
+        <p>What I wanted was simple. Somewhere I could talk about being a mom and talk about weed in the same breath, without anyone clutching their pearls. Somewhere a story about a hard parenting day and a story about a really good strain could sit side by side, because in my life, they do.</p>
+        <p>Wine moms have had this for years. The mugs, the memes, the "mommy needs her juice" jokes. Nobody blinks. I'm just trying to make a little room for the rest of us. For the mom who's had a day and says, "Man, I could use a joint," and gets a knowing laugh instead of a side-eye.</p>
+        <p class="pull">These kids were a lot today. I could use a smoke. If you've ever thought that and felt guilty for it, pull up a chair. You're among friends.</p>
+        <h2>What it actually sounds like around here</h2>
+        <p>I picture this place as a real conversation between friends. Easy, honest, and a little goofy. Something like this:</p>
+        <div class="kind-list">
+          <p style="margin:0 0 .6em"><strong>Porch Notes: Granddaddy Purple</strong></p>
+          <p style="margin:0 0 .6em">Oh, I really love this one. It made me so chill but not sleepy. I put on some sweet music, did every single dish in the sink, and somehow got a whole pile of housework done while dancing around the kitchen. Then, of course, the munchies hit, so the boys and I made brownies together. (The regular kind, obviously.)</p>
+          <p style="margin:0"><strong>Rating:</strong> 10 out of 10 for energy and good vibes. ✦</p>
+        </div>
+        <p>That's it. That's the vibe. Weed, motherhood, music, messy kitchens, and a whole lot of heart, all woven together without anybody feeling judged.</p>
+        <h2>What you'll find here</h2>
+        <p>Some days it'll be strain notes and cozy rituals. Some days it'll be the hard stuff, like mental health, burnout, and the parts of motherhood nobody posts about. And some days it'll just be a funny story about my four boys and the chaos they bring. Most days, honestly, it'll be all three.</p>
+        <p>What you won't find is judgment. Not for the mom who partakes, and not for the mom who doesn't. Not for the days you nailed it, and definitely not for the days you just survived.</p>
+        <h2>Pull up a chair</h2>
+        <p>This little corner is for you. For the mom who needs a breather, the woman finding her way back to herself, and anyone who's ever felt a little too much of one thing to fit in anywhere else.</p>
+        <p>Stay a while. Leave a note on the <a href="#contact">Say hello</a> page and tell me about your day. And if you want to hear when the next story is ready, <a href="#letters">join the Kindness Letters</a>.</p>
+        <p class="signoff">So glad you found your way here,<br>Autumn ✦</p>
+        <p style="font-size:.85rem;color:var(--ink-soft);margin-top:2em">Cannabis content is for adults 21+. Please enjoy responsibly, keep it locked away from little hands, and follow the laws where you live.</p>
+      </div>
+      <a class="back" href="#journal">← Back to the journal</a>
+    </article></div>${letterBlock()}`;
   },
 
   "good-mom-joint"(){
