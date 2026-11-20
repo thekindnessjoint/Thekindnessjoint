@@ -100,6 +100,10 @@ section{padding-block:56px}
 .post-card:hover{color:var(--ink);box-shadow:0 10px 24px -14px rgba(181,98,107,.45)}
 .post-card .art{aspect-ratio:16/10;max-width:100%;display:grid;place-items:center;position:relative}
 .post-card .art svg{width:46%;height:auto;opacity:.9}
+.post-card .art.scene svg,.scene-fig svg{width:100%;height:100%;opacity:1;display:block}
+.scene-fig{margin:0 0 28px;border-radius:22px;overflow:hidden;aspect-ratio:16/10;max-width:100%;border:1px solid var(--line)}
+.about-art{border-radius:24px;overflow:hidden;aspect-ratio:4/3;max-width:420px;width:100%;margin:0 auto;border:1px solid var(--line)}
+.about-art svg{width:100%;height:100%;display:block}
 .post-card .body{padding:18px 20px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
 .post-card h3{font-size:1.2rem}
 .post-card p{margin:0;font-size:.93rem;color:var(--ink-soft)}
@@ -190,6 +194,15 @@ footer.site .fine{grid-column:1/-1;border-top:1px solid var(--line);padding-top:
     <symbol id="i-cup" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13h17v5a7 7 0 0 1-7 7h-3a7 7 0 0 1-7-7z"/><path d="M22 15h2a3 3 0 0 1 0 6h-2.5"/><path d="M10 9c0-2 2-2 2-4M15 9c0-2 2-2 2-4"/></g></symbol>
     <symbol id="i-hands" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="10" cy="10" r="4"/><circle cx="22" cy="10" r="4"/><path d="M3 27c0-5 3-9 7-9s7 4 7 9M15 27c0-5 3-9 7-9s7 4 7 9"/></g></symbol>
     <symbol id="i-book" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M16 8c-3-2-7-3-12-3v19c5 0 9 1 12 3 3-2 7-3 12-3V5c-5 0-9 1-12 3z"/><path d="M16 8v19"/></g></symbol>
+<symbol id="pot-leaf" viewBox="-60 -70 120 90"><g fill="#8FA672" stroke="#5F7144" stroke-width="1.2">
+<ellipse rx="6" ry="30" cy="-30"/><ellipse rx="5.5" ry="26" cy="-26" transform="rotate(-28)"/><ellipse rx="5.5" ry="26" cy="-26" transform="rotate(28)"/>
+<ellipse rx="5" ry="20" cy="-20" transform="rotate(-58)"/><ellipse rx="5" ry="20" cy="-20" transform="rotate(58)"/>
+<ellipse rx="4" ry="12" cy="-12" transform="rotate(-95)"/><ellipse rx="4" ry="12" cy="-12" transform="rotate(95)"/></g>
+<path d="M0 0 V18" stroke="#5F7144" stroke-width="2" fill="none"/></symbol>
+<symbol id="sparkle" viewBox="-10 -10 20 20"><path d="M0-10 C1-2 2-1 10 0 C2 1 1 2 0 10 C-1 2-2 1-10 0 C-2-1-1-2 0-10Z" fill="#D3A84A"/></symbol>
+<symbol id="sprig2" viewBox="-40 -80 80 90"><path d="M0 8 C-2-20 4-50 0-78" stroke="#6E8A4F" stroke-width="2" fill="none"/>
+<g fill="#9AAE7C"><ellipse cx="-10" cy="-15" rx="10" ry="4" transform="rotate(-30 -10 -15)"/><ellipse cx="11" cy="-28" rx="10" ry="4" transform="rotate(30 11 -28)"/><ellipse cx="-9" cy="-42" rx="9" ry="3.5" transform="rotate(-30 -9 -42)"/><ellipse cx="10" cy="-55" rx="8" ry="3.5" transform="rotate(30 10 -55)"/><ellipse cx="-6" cy="-66" rx="7" ry="3" transform="rotate(-30 -6 -66)"/></g></symbol>
+<symbol id="bloom" viewBox="-12 -12 24 24"><g fill="#E2A2A6"><circle cx="0" cy="-6" r="5"/><circle cx="6" cy="-1" r="5"/><circle cx="3" cy="6" r="5"/><circle cx="-4" cy="6" r="5"/><circle cx="-6" cy="-1" r="5"/></g><circle r="3" fill="#D3A84A"/></symbol>
   </defs>
 </svg>
 
@@ -239,6 +252,62 @@ footer.site .fine{grid-column:1/-1;border-top:1px solid var(--line);padding-top:
 </footer>
 
 <script>
+const SCENES = {
+  evening: `<svg viewBox="0 0 400 250" role="img" aria-label="Illustration: a cup of tea by a moonlit window, with a cannabis leaf and flowers in a jar" preserveAspectRatio="xMidYMid slice">
+<defs><linearGradient id="sky1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EBDDF0"/><stop offset=".7" stop-color="#F8E6E2"/><stop offset="1" stop-color="#FBEFDD"/></linearGradient></defs>
+<rect width="400" height="250" fill="url(#sky1)"/>
+<path d="M60 250 V95 A70 70 0 0 1 200 95 V250" fill="#F3E9F2" stroke="#C9B8D6" stroke-width="3"/>
+<path d="M130 25 V250 M60 140 H200" stroke="#C9B8D6" stroke-width="2"/>
+<circle cx="150" cy="72" r="20" fill="#F5E2B0"/><circle cx="159" cy="66" r="18" fill="#F3E9F2"/>
+<use href="#sparkle" x="88" y="62" width="12" height="12"/><use href="#sparkle" x="104" y="100" width="7" height="7"/><use href="#sparkle" x="150" y="112" width="9" height="9"/><use href="#sparkle" x="300" y="40" width="10" height="10"/><use href="#sparkle" x="350" y="80" width="6" height="6"/>
+<rect x="0" y="196" width="400" height="54" fill="#E8CFAE"/><rect x="0" y="192" width="400" height="6" fill="#D9B88E"/>
+<!-- book -->
+<path d="M200 196 L230 186 L290 190 L290 196Z" fill="#FFF8E8" stroke="#C9A97F"/><path d="M290 190 L350 184 L380 194 L290 196Z" fill="#FFF8E8" stroke="#C9A97F"/>
+<!-- cup -->
+<path d="M248 150 h70 v12 a35 32 0 0 1 -70 0z" fill="#C17D58"/><path d="M318 158 a12 12 0 1 1 0 20" fill="none" stroke="#C17D58" stroke-width="6"/>
+<ellipse cx="283" cy="150" rx="35" ry="6" fill="#9E5E3F"/><ellipse cx="283" cy="194" rx="44" ry="6" fill="#E9D4BD" stroke="#C9A97F"/>
+<path d="M248 170 q35 8 70 0" stroke="#F4C9CB" stroke-width="3" fill="none"/>
+<path d="M270 140 c-10-14 10-18 0-32 M286 140 c-10-14 10-20 0-36 M302 140 c-10-14 10-18 0-30" stroke="#B9A9CC" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".8"/>
+<!-- jar with leaf -->
+<path d="M80 196 v-46 q0-8 8-8 h28 q8 0 8 8 v46z" fill="#DCE6CF" stroke="#8FA672" stroke-width="2" opacity=".95"/><rect x="86" y="132" width="32" height="10" rx="3" fill="#D3A84A"/>
+<use href="#pot-leaf" x="56" y="70" width="92" height="70"/>
+<use href="#sprig2" x="106" y="92" width="44" height="54" transform="rotate(18 128 120)"/>
+<use href="#bloom" x="122" y="88" width="16" height="16"/><use href="#bloom" x="132" y="104" width="12" height="12"/>
+<!-- joint resting on saucer -->
+<g transform="rotate(-8 360 186)"><rect x="330" y="182" width="44" height="6" rx="3" fill="#F6E7C8" stroke="#C9A97F"/><rect x="330" y="182" width="9" height="6" rx="2" fill="#D9B88E"/></g>
+<path d="M378 176 c-6-8 6-10 0-18" stroke="#B9A9CC" stroke-width="1.8" fill="none" opacity=".7"/>
+</svg>`,
+  books: `<svg viewBox="0 0 400 250" role="img" aria-label="Illustration: a stack of books with wildflowers beside a lit candle and a full moon" preserveAspectRatio="xMidYMid slice">
+<rect width="400" height="250" fill="#F6E1DF"/>
+<circle cx="320" cy="60" r="34" fill="#FBEFD5"/>
+<use href="#sparkle" x="60" y="40" width="12" height="12"/><use href="#sparkle" x="250" y="30" width="8" height="8"/><use href="#sparkle" x="365" y="120" width="9" height="9"/>
+<rect x="0" y="200" width="400" height="50" fill="#E8CFAE"/><rect x="0" y="196" width="400" height="6" fill="#D9B88E"/>
+<rect x="70" y="176" width="130" height="22" rx="3" fill="#5F7144"/><rect x="80" y="154" width="112" height="22" rx="3" fill="#B5626B"/><rect x="74" y="132" width="120" height="22" rx="3" fill="#B9A9CC"/>
+<path d="M86 165 h90 M84 187 h100 M88 143 h90" stroke="#FBEFD5" stroke-width="2" opacity=".7"/>
+<use href="#sprig2" x="120" y="54" width="70" height="80"/><use href="#bloom" x="150" y="70" width="22" height="22"/><use href="#bloom" x="134" y="96" width="16" height="16"/>
+<rect x="250" y="130" width="34" height="68" rx="4" fill="#FFF6E2" stroke="#E2CDA8"/><path d="M267 130 v-8" stroke="#4B3A30" stroke-width="2"/>
+<path d="M267 122 c-9-10 0-24 0-30 c0 6 9 20 0 30z" fill="#D3A84A"/><circle cx="267" cy="110" r="22" fill="#F5D88A" opacity=".25"/>
+<path d="M300 198 q20-30 50-12 q-10 18-50 12z" fill="#9AAE7C"/><path d="M300 198 q24-12 50-12" stroke="#6E8A4F" fill="none"/>
+</svg>`,
+  herbs: `<svg viewBox="0 0 400 250" role="img" aria-label="Illustration: drying herbs, apothecary jars, a candle and a crescent moon" preserveAspectRatio="xMidYMid slice">
+<rect width="400" height="250" fill="#E7EDDA"/>
+<circle cx="90" cy="64" r="26" fill="#FBEFD5"/><circle cx="102" cy="56" r="24" fill="#E7EDDA"/>
+<use href="#sparkle" x="150" y="40" width="10" height="10"/><use href="#sparkle" x="330" y="50" width="12" height="12"/><use href="#sparkle" x="40" y="120" width="7" height="7"/>
+<path d="M0 30 Q200 70 400 26" stroke="#8FA672" stroke-width="2" fill="none"/>
+<g stroke="#8FA672" stroke-width="1.5"><path d="M120 50 v34 M200 58 v40 M280 50 v34"/></g>
+<g transform="translate(120 84) rotate(180)"><use href="#sprig2" x="-16" y="-8" width="32" height="40"/></g>
+<g transform="translate(200 98) rotate(180)"><use href="#sprig2" x="-16" y="-8" width="32" height="40"/></g>
+<g transform="translate(280 84) rotate(180)"><use href="#sprig2" x="-16" y="-8" width="32" height="40"/></g>
+<rect x="0" y="200" width="400" height="50" fill="#E8CFAE"/><rect x="0" y="196" width="400" height="6" fill="#D9B88E"/>
+<path d="M90 198 v-48 q0-10 10-10 h30 q10 0 10 10 v48z" fill="#F7ECD3" stroke="#C9A97F" stroke-width="2"/><rect x="96" y="128" width="38" height="12" rx="3" fill="#C17D58"/><rect x="100" y="162" width="30" height="16" fill="#FFFBF0" stroke="#C9A97F"/>
+<path d="M170 198 v-30 q0-8 8-8 h22 q8 0 8 8 v30z" fill="#ECE6F2" stroke="#B9A9CC" stroke-width="2"/><rect x="176" y="150" width="26" height="10" rx="3" fill="#D3A84A"/>
+<use href="#bloom" x="176" y="172" width="12" height="12"/><use href="#bloom" x="190" y="180" width="10" height="10"/>
+<rect x="240" y="150" width="22" height="48" rx="3" fill="#FFF6E2" stroke="#E2CDA8"/><path d="M251 150 v-6" stroke="#4B3A30" stroke-width="2"/><path d="M251 144 c-7-8 0-18 0-22 c0 4 7 14 0 22z" fill="#D3A84A"/>
+<path d="M290 198 c10-6 40-6 60 0" stroke="#5F7144" stroke-width="3" fill="none"/>
+<use href="#pot-leaf" x="290" y="140" width="66" height="50"/>
+</svg>`
+};
+
 const TOPICS = [
   {id:"motherhood", name:"Motherhood & Parenting", short:"Motherhood", icon:"i-heart", color:"var(--rose)", bg:"#F6E1DF",
    blurb:"The honest, messy, beautiful truth of raising little humans, and remembering that moms are people too."},
@@ -255,11 +324,11 @@ const TOPICS = [
 ];
 
 const POSTS = [
-  {id:"mom-is-a-person-too", topic:"motherhood", title:"Mom Is a Person, Too", sub:"Making room for yourself without the guilt",
-   date:"November 19, 2026", read:"5 min read", ready:true,
-   excerpt:"Somewhere between the snack requests and the laundry mountain, a lot of us quietly misplace ourselves. Let's go looking."},
-  {id:"good-mom-joint", topic:"cannabis", title:"Can a Good Mom Enjoy a Joint?", date:"Coming soon", read:"",
+  {id:"good-mom-joint", topic:"cannabis", title:"Can a Good Mom Enjoy a Joint?", sub:"Let's talk about it, honestly", date:"November 20, 2026", read:"6 min read", ready:true, art:"evening",
    excerpt:"Spoiler: being a loving, present parent and a grown woman who unwinds with cannabis are not opposites. Let's talk about it honestly."},
+  {id:"mom-is-a-person-too", topic:"motherhood", title:"Mom Is a Person, Too", sub:"Making room for yourself without the guilt",
+   date:"November 19, 2026", read:"5 min read", ready:true, art:"books",
+   excerpt:"Somewhere between the snack requests and the laundry mountain, a lot of us quietly misplace ourselves. Let's go looking."},
   {id:"anxiety-spiral", topic:"wellness", title:"The Little Things That Pull Me Out of an Anxiety Spiral", date:"Coming soon", read:"",
    excerpt:"Not a cure, not a checklist. Just the small, real things that help me find the floor again when my brain gets loud."},
   {id:"five-minute-peace", topic:"self-care", title:"Five-Minute Peace", sub:"Tiny rituals for loud days", date:"Coming soon", read:"",
@@ -278,7 +347,7 @@ function postCard(p){
   const t = topicById(p.topic);
   const href = p.ready ? `#${p.id}` : `#${t.id}`;
   return `<a class="post-card" href="${href}">
-    <div class="art" style="background:${t.bg}">${ico(t.icon, t.color)}</div>
+    ${p.art ? `<div class="art scene">${SCENES[p.art]}</div>` : `<div class="art" style="background:${t.bg}">${ico(t.icon, t.color)}</div>`}
     <div class="body">
       <span class="tag">${t.short}</span>
       <h3>${p.title}</h3>
@@ -361,7 +430,7 @@ const VIEWS = {
       <div class="page-head">${sprig()}<span class="eyebrow">Our story</span><h1>Hi, I'm <em class="swash">Autumn.</em></h1>
       <p class="lede" style="font-family:var(--display);font-style:italic">&ldquo;I'm not trying to become someone else. I'm learning how to become more of myself.&rdquo;</p></div>
       <div class="about-grid">
-        <img src="logo.jpg" alt="The Kindness Joint logo" style="border-radius:50%;max-width:420px;width:100%;margin:0 auto" width="720" height="720">
+        <div class="about-art">${SCENES.herbs}</div>
         <div class="prose">
           <p>I'm Autumn, a mother of four boys, a reader, a creative soul, and a lifelong collector of curiosities. I'm drawn to old stories, forgotten folklore, medieval history, fantasy worlds, moonlit nights, and the little bits of magic hidden in everyday life. I'm also an enthusiastic baker and someone who is almost always dreaming up a new project.</p>
           <p>I'm a woman still figuring it out, and someone who believes that being a good parent, a good person, and a cannabis enthusiast don't have to be mutually exclusive.</p>
@@ -405,6 +474,47 @@ const VIEWS = {
     </div>`;
   },
 
+  "good-mom-joint"(){
+    const t = topicById("cannabis");
+    return `<div class="wrap"><article class="post">
+      <header>
+        <a class="tag" href="#${t.id}" style="text-decoration:none">${t.name}</a>
+        <h1>Can a Good Mom Enjoy a Joint?</h1>
+        <p class="lede" style="margin:0;font-family:var(--display);font-style:italic">Let's talk about it, honestly</p>
+        <span class="byline">By Autumn · November 20, 2026 · 6 min read</span>
+        ${sprig()}
+      </header>
+      <figure class="scene-fig">${SCENES.evening}</figure>
+      <div class="prose">
+        <p>There's a question a lot of us carry around quietly, the kind we only say out loud to our closest friends, usually in a whisper, usually after the kids are asleep. <em>Can I be a good mom and still enjoy a joint?</em></p>
+        <p>I'm going to answer it plainly, because that's what this little corner is for. Yes. You can love your children with your whole heart, show up for every school pickup and scraped knee, and still be a grown woman who unwinds with a little cannabis at the end of a long day. Those two things were never opposites.</p>
+        <p>But "yes" deserves more than one word, so pour yourself something warm and let's actually talk about it.</p>
+        <h2>The wine-o'clock double standard</h2>
+        <p>Walk down any home goods aisle and you'll find a dozen cute signs about mommy needing her wine. Nobody bats an eye. A mom with a glass of chardonnay at book club is relatable. A mom who prefers a slow joint on the back porch is, to some people, a scandal.</p>
+        <p>I'm not here to knock anyone's glass of wine. I just think it's worth noticing that the judgment isn't really about the choice itself. It's about old stories we were told, and stigma that hasn't caught up with how many thoughtful, responsible women actually live.</p>
+        <p class="pull">Being a good mom has never been about being perfect. It's about being present, loving, and responsible. Cannabis doesn't cancel any of that.</p>
+        <h2>What "responsible" looks like in my house</h2>
+        <p>Enjoying cannabis as a parent comes with real responsibilities, and I take them seriously. These are my non-negotiables:</p>
+        <ul class="kind-list">
+          <li><strong>Kids first, always.</strong> I only partake when my boys are asleep or safely with another grown-up, and never when I might need to drive or handle an emergency.</li>
+          <li><strong>Locked up and out of reach.</strong> Everything lives in a locked box, up high. Edibles especially, because to a child they look exactly like candy.</li>
+          <li><strong>Never behind the wheel.</strong> Not even "just a little." If I've had any, I'm not driving. Period.</li>
+          <li><strong>Know the law where you live.</strong> The rules are different from state to state, and it's on each of us to know and follow ours.</li>
+          <li><strong>Check in with yourself.</strong> I ask myself why I'm reaching for it. Is it to relax and enjoy my evening, or to avoid something I need to feel? The first is self-care. The second is a sign to slow down and talk to someone.</li>
+        </ul>
+        <h2>It's one part of me, not all of me</h2>
+        <p>Here's what a typical evening actually looks like. Dinner, dishes, homework I don't fully understand, four boys who all need something at the same time. Bath, books, one more glass of water, one more hug. And then, finally, quiet.</p>
+        <p>Sometimes that quiet is a cup of tea and a fantasy novel. Sometimes it's a candle and my journal. And sometimes it's a little cannabis on the porch, under the moon, letting my shoulders come down from around my ears. It's not the center of my life. It's one small, cozy ritual among many.</p>
+        <h2>And if you're the mom who doesn't?</h2>
+        <p>You're welcome here too. Truly. The Kindness Joint isn't about convincing anyone to light up. It's about making room at the table for all of us, without anyone feeling like they have to hide part of who they are.</p>
+        <p>Whether you unwind with a joint, a glass of wine, a hot bath, a long run, or ten minutes alone in the car with the radio on, I hope you give yourself permission to unwind at all. You deserve it.</p>
+        <p class="signoff">With kindness, from my porch to yours,<br>Autumn ✦</p>
+        <p style="font-size:.85rem;color:var(--ink-soft);margin-top:2em">This post shares personal experience, not medical or legal advice. Cannabis content is for adults 21+. Please follow the laws where you live.</p>
+      </div>
+      <a class="back" href="#journal">← Back to the journal</a>
+    </article></div>${letterBlock()}`;
+  },
+
   "mom-is-a-person-too"(){
     const t = topicById("motherhood");
     return `<div class="wrap"><article class="post">
@@ -415,6 +525,7 @@ const VIEWS = {
         <span class="byline">By Autumn · November 19, 2026 · 5 min read</span>
         ${sprig()}
       </header>
+      <figure class="scene-fig">${SCENES.books}</figure>
       <div class="prose">
         <p>Somewhere between the snack requests, the permission slips, and the laundry mountain that never, ever shrinks, a lot of us quietly misplace ourselves. Not all at once. It happens slowly, like a sweater you keep meaning to grab from the back of the closet until one day you realize you haven't worn it in years.</p>
         <p>If you've ever stood in your kitchen at 9 p.m. and genuinely couldn't remember the last thing you did just because <em>you</em> wanted to, this one's for you. Pull up a chair.</p>
