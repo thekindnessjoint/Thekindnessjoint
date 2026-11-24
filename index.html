@@ -253,6 +253,7 @@ footer.site .fine{grid-column:1/-1;border-top:1px solid var(--line);padding-top:
 
 <script>
 const SCENES = {
+  nightstand: `<svg viewBox="0 0 400 250" role="img" aria-label="Illustration: a cozy nightstand with a glowing lamp, a stack of books, headphones, a mug and a little pine sprig with a bell" preserveAspectRatio="xMidYMid slice"><rect width="400" height="250" fill="#ECE6F2"/><circle cx="70" cy="56" r="22" fill="#FFF6E2"/><circle cx="80" cy="50" r="20" fill="#ECE6F2"/><use href="#sparkle" x="140" y="40" width="10" height="10"/><use href="#sparkle" x="360" y="56" width="12" height="12"/><use href="#sparkle" x="30" y="120" width="7" height="7"/><circle cx="300" cy="96" r="58" fill="#F5D88A" opacity=".22"/><path d="M272 70 h56 l14 44 h-84z" fill="#F4C9CB" stroke="#E2A2A6" stroke-width="2"/><rect x="296" y="114" width="8" height="54" fill="#C9A97F"/><ellipse cx="300" cy="170" rx="24" ry="6" fill="#B5626B"/><rect x="0" y="176" width="400" height="12" fill="#C9A97F"/><rect x="0" y="188" width="400" height="62" fill="#E8CFAE"/><rect x="30" y="200" width="340" height="2" fill="#D9B88E"/><circle cx="200" cy="222" r="5" fill="#C17D58"/><rect x="60" y="154" width="120" height="22" rx="3" fill="#5F7144"/><rect x="70" y="134" width="104" height="20" rx="3" fill="#C17D58"/><rect x="64" y="116" width="110" height="18" rx="3" fill="#B9A9CC"/><path d="M76 165 h90 M80 144 h80 M76 125 h86" stroke="#FBEFD5" stroke-width="2" opacity=".7"/><path d="M84 116 c0-30 52-30 52 0" fill="none" stroke="#4B3A30" stroke-width="5" stroke-linecap="round"/><rect x="76" y="104" width="14" height="20" rx="6" fill="#4B3A30"/><rect x="130" y="104" width="14" height="20" rx="6" fill="#4B3A30"/><path d="M210 150 h34 v14 a17 14 0 0 1 -34 0z" fill="#9AAE7C"/><path d="M244 154 a7 7 0 1 1 0 12" fill="none" stroke="#9AAE7C" stroke-width="4"/><path d="M220 144 c-6-8 6-10 0-18 M232 144 c-6-8 6-10 0-18" stroke="#B9A9CC" stroke-width="2" fill="none" stroke-linecap="round"/><g stroke="#46552F" stroke-width="2.2" stroke-linecap="round"><path d="M330 176 L372 150"/><path d="M340 170 l-6-10 M340 170 l8 2 M350 164 l-6-10 M350 164 l8 2 M360 158 l-6-10 M360 158 l8 2"/></g><path d="M352 160 q2 10 -4 14" stroke="#B5626B" stroke-width="2" fill="none"/><path d="M342 174 a7 7 0 0 1 14 0 v2 h-14z" fill="#D3A84A"/><circle cx="349" cy="178" r="2" fill="#B08A2E"/></svg>`,
   porch: `<svg viewBox="0 0 400 250" role="img" aria-label="Illustration: two mugs on a porch rail under string lights, their steam curling into a heart" preserveAspectRatio="xMidYMid slice"><rect width="400" height="250" fill="#F5EBCF"/><circle cx="330" cy="70" r="24" fill="#FFF6E2"/><use href="#sparkle" x="60" y="70" width="10" height="10"/><use href="#sparkle" x="250" y="96" width="7" height="7"/><use href="#sparkle" x="372" y="130" width="9" height="9"/><path d="M0 22 Q100 64 200 30 T400 26" stroke="#8C7A5E" stroke-width="1.5" fill="none"/><g fill="#D3A84A"><circle cx="30" cy="34" r="5"/><circle cx="75" cy="47" r="5"/><circle cx="120" cy="49" r="5"/><circle cx="165" cy="40" r="5"/><circle cx="235" cy="34" r="5"/><circle cx="285" cy="44" r="5"/><circle cx="335" cy="36" r="5"/><circle cx="380" cy="27" r="5"/></g><g fill="#F5D88A" opacity=".35"><circle cx="30" cy="34" r="11"/><circle cx="75" cy="47" r="11"/><circle cx="120" cy="49" r="11"/><circle cx="165" cy="40" r="11"/><circle cx="235" cy="34" r="11"/><circle cx="285" cy="44" r="11"/><circle cx="335" cy="36" r="11"/><circle cx="380" cy="27" r="11"/></g><rect x="0" y="186" width="400" height="14" fill="#C9A97F"/><g fill="#D9B88E"><rect x="20" y="200" width="12" height="50"/><rect x="80" y="200" width="12" height="50"/><rect x="140" y="200" width="12" height="50"/><rect x="200" y="200" width="12" height="50"/><rect x="260" y="200" width="12" height="50"/><rect x="320" y="200" width="12" height="50"/><rect x="380" y="200" width="12" height="50"/></g><path d="M140 148 h52 v8 a26 24 0 0 1 -52 0z" fill="#B5626B"/><path d="M192 154 a9 9 0 1 1 0 16" fill="none" stroke="#B5626B" stroke-width="5"/><path d="M234 148 h52 v8 a26 24 0 0 1 -52 0z" fill="#5F7144"/><path d="M234 154 a9 9 0 1 0 0 16" fill="none" stroke="#5F7144" stroke-width="5"/><ellipse cx="166" cy="148" rx="26" ry="4.5" fill="#8E4A52"/><ellipse cx="260" cy="148" rx="26" ry="4.5" fill="#46552F"/><path d="M166 140 c-8-10 8-14 0-24 M260 140 c-8-10 8-14 0-24" stroke="#B9A9CC" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M213 122 C188 106 190 84 202 84 C208 84 213 90 213 95 C213 90 218 84 224 84 C236 84 238 106 213 122Z" fill="#F4C9CB" stroke="#E2A2A6" stroke-width="2"/><use href="#pot-leaf" x="60" y="120" width="62" height="48"/><path d="M76 186 v-22 h30 v22z" fill="#C17D58"/><rect x="72" y="160" width="38" height="7" rx="2" fill="#9E5E3F"/><use href="#bloom" x="320" y="150" width="18" height="18"/><use href="#sprig2" x="306" y="128" width="40" height="60"/></svg>`,
   evening: `<svg viewBox="0 0 400 250" role="img" aria-label="Illustration: a cup of tea by a moonlit window, with a cannabis leaf and flowers in a jar" preserveAspectRatio="xMidYMid slice">
 <defs><linearGradient id="sky1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EBDDF0"/><stop offset=".7" stop-color="#F8E6E2"/><stop offset="1" stop-color="#FBEFDD"/></linearGradient></defs>
@@ -325,6 +326,8 @@ const TOPICS = [
 ];
 
 const POSTS = [
+  {id:"whats-on-my-nightstand", topic:"real-life", title:"What's on My Nightstand", sub:"Dungeon crawls, Krampus, and a cozier kind of December", date:"November 24, 2026", read:"6 min read", ready:true, art:"nightstand",
+   excerpt:"A hilarious (and surprisingly deep) audiobook that keeps me company while I bake, and the folklore rabbit hole that's changing how my family celebrates winter."},
   {id:"not-the-only-one", topic:"community", title:"You Are Not the Only One", sub:"Why I started this little corner", date:"November 20, 2026", read:"6 min read", ready:true, art:"porch",
    excerpt:"Why I started this little corner, and why I hope you'll pull up a chair and stay a while."},
   {id:"good-mom-joint", topic:"cannabis", title:"Can a Good Mom Enjoy a Joint?", sub:"Let's talk about it, honestly", date:"November 20, 2026", read:"7 min read", ready:true, art:"evening",
@@ -473,6 +476,51 @@ const VIEWS = {
         </form>
       </div>
     </div>`;
+  },
+
+  "whats-on-my-nightstand"(){
+    const t = topicById("real-life");
+    return `<div class="wrap"><article class="post">
+      <header>
+        <a class="tag" href="#${t.id}" style="text-decoration:none">${t.name}</a>
+        <h1>What's on My Nightstand</h1>
+        <p class="lede" style="margin:0;font-family:var(--display);font-style:italic">Dungeon crawls, Krampus, and a cozier kind of December</p>
+        <span class="byline">By Autumn · November 24, 2026 · 6 min read</span>
+        ${sprig()}
+      </header>
+      <figure class="scene-fig">${SCENES.nightstand}</figure>
+      <div class="prose">
+        <p>If you could peek at my nightstand right now, you'd find a teetering stack of books, a mug I swear I'll bring to the kitchen tomorrow, and my headphones, because lately most of my reading happens with flour on my hands.</p>
+        <p>Here's what's keeping me company this month, plus the folklore rabbit hole I've fallen all the way down.</p>
+        <h2>Currently listening: <em>Dungeon Crawler Carl</em></h2>
+        <p>I have to tell you about <em>Dungeon Crawler Carl</em> by Matt Dinniman. The setup is wild. The world as we know it is suddenly gone, and the survivors are dropped into an enormous, deadly dungeon that is also, somehow, an intergalactic reality show. Our hero is Carl, a regular guy who ends up in there in his boxers, alongside his ex-girlfriend's very fancy, very opinionated cat, Princess Donut.</p>
+        <p>It is <em>hilarious</em>. I have laughed out loud alone in my kitchen more times than I can count. But it sneaks up on you, too. Underneath all the chaos and ridiculous loot boxes, it has real things to say about kindness, about how people treat each other when the world falls apart, and about choosing to stay decent when nobody's making you. I did not expect a book with a talking cat in a tiara to make me think this hard, and yet here we are.</p>
+        <p>I've been doing the audiobook, and I can't recommend it enough. The narration is so good it feels like a full production. It has become my baking soundtrack. Pop in one earbud, start the dough, and suddenly an hour has passed, the kitchen smells amazing, and Carl is in trouble again.</p>
+        <div class="kind-list">
+          <p style="margin:0 0 .6em"><strong>Nightstand Notes: Dungeon Crawler Carl</strong></p>
+          <p style="margin:0 0 .6em"><strong>Best for:</strong> Baking, folding laundry, or any chore that needs a little adventure.</p>
+          <p style="margin:0 0 .6em"><strong>Vibe:</strong> Chaotic, laugh-out-loud funny, and secretly full of heart.</p>
+          <p style="margin:0"><strong>Rating:</strong> 10 out of 10. Princess Donut deserves her own fan club. ✦</p>
+        </div>
+        <p style="font-size:.9rem;color:var(--ink-soft)">A gentle heads-up: it's a grown-up book, with plenty of swearing and some gore, so it's a headphones-in, after-the-kids-are-asleep kind of listen.</p>
+        <h2>The folklore rabbit hole: Krampus</h2>
+        <p>Every so often I get curious about something and suddenly it's 1 a.m. and I have nineteen tabs open. This month, it's Krampus.</p>
+        <p>If you've never met him, Krampus is a figure from Alpine folklore: horned, shaggy, a little terrifying, and the shadowy companion to St. Nicholas. The story goes that St. Nicholas rewards the good children, while Krampus deals with the naughty ones, usually armed with a bundle of birch switches and a basket on his back. Charming, right? In parts of Europe, the night before St. Nicholas Day, December 5th, is known as <em>Krampusnacht</em>, Krampus Night.</p>
+        <p>What I love about these old stories is that they remind me winter used to be <em>wild</em>. Before the twinkle lights and the shopping lists, the longest nights of the year were full of masks, bells, fire, and a little bit of fear. There's something honest about that. Winter is dark. Our ancestors didn't pretend otherwise. They gathered close and made it a celebration anyway.</p>
+        <h2>Joining a Krampus run</h2>
+        <p>And here's the part I'm most excited about. As I learned while digging into all this, there's a tradition called a <em>Krampuslauf</em>, or Krampus run, where people dress as Krampus and parade through the streets with bells clanging. There's one coming up near me, and this year, I'm going to be part of it.</p>
+        <p>Yes, me. Mother of four. Baker of cookies. Running around in horns. I can't wait. I will absolutely report back.</p>
+        <p class="pull">Winter is dark. Our ancestors didn't pretend otherwise. They gathered close and made it a celebration anyway.</p>
+        <h2>Why our family is shifting to Yule</h2>
+        <p>All of this has nudged a bigger change in our house. This year, we're moving our family celebration to Yule, the winter solstice, the longest night of the year and the turning point when the days start growing light again.</p>
+        <p>Part of it is that it fits who I am. The woodland, the old stories, the candles in the dark, the idea of welcoming the sun back. It just feels like <em>us</em>. And part of it is honestly practical. Christmas Day pulls everyone in a hundred directions. By celebrating at Yule, we get our own cozy, unhurried day together, and it conflicts a lot less with everyone else's Christmas plans. Nobody has to choose. We can still show up for family on the 25th, with our own little celebration already tucked in our pockets.</p>
+        <p>I'm still figuring out what our Yule traditions will look like. I'm thinking candles, a big home-baked feast, a walk under the winter sky, and probably a story or two about Krampus for the boys (the not-too-scary version). If you celebrate Yule, I would <em>love</em> to hear what you do. Tell me on the <a href="#contact">Say hello</a> page.</p>
+        <h2>Your turn</h2>
+        <p>What's on your nightstand right now? Is there a book, an audiobook, or a strange little rabbit hole you can't stop thinking about? Send me your recommendations. My stack is never too tall.</p>
+        <p class="signoff">Cozy reading, and happy almost-Yule,<br>Autumn ✦</p>
+      </div>
+      <a class="back" href="#journal">← Back to the journal</a>
+    </article></div>${letterBlock()}`;
   },
 
   "not-the-only-one"(){
